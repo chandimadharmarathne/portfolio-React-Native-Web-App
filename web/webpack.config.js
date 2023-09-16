@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable no-unused-vars */
 /* eslint-disable prettier/prettier */
 const path = require('path');
 const webpack = require('webpack');
@@ -42,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'url-loader' 
+        loader: 'url-loader',
       },
       ttfLoaderConfiguration,
     ],

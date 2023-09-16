@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
@@ -11,7 +10,6 @@ import {
   Image,
   Linking,
 } from 'react-native';
-import {Link} from 'react-scroll';
 
 import Github from '../../assets/icons/github.png';
 import Linkedin from '../../assets/icons/linkedin.png';
@@ -25,8 +23,9 @@ const openWebsiteInNewTab = (url: string) => {
   Linking.openURL(url).catch(err => console.error('An error occurred', err));
 };
 
-const MenuBarComponent: React.FC = () => {
+const AboutScreenComponent: React.FC = () => {
   return (
+    <div id="about">
     <View style={styles.container}>
       <View style={styles.menuBar}>
         <View style={styles.iconContainer}>
@@ -36,28 +35,18 @@ const MenuBarComponent: React.FC = () => {
             }>
             <Image source={Github} style={styles.icon} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() =>
-              openWebsiteInNewTab(
-                'https://www.linkedin.com/in/chandima-dharmarathne-403a931a4/',
-              )
-            }>
+          <a
+            href="https://github.com/chandimadharmarathne"
+            target="_blank"
+            rel="noopener noreferrer">
             <Image source={Linkedin} style={styles.icon} />
-          </TouchableOpacity>
+          </a>
           <TouchableOpacity
-            onPress={() =>
-              openWebsiteInNewTab(
-                'https://instagram.com/chandimaishan?igshid=OGQ5ZDc2ODk2ZA==',
-              )
-            }>
+            onPress={() => openWebsiteInNewTab('https://instagram.com')}>
             <Image source={Instagram} style={styles.icon} />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() =>
-              openWebsiteInNewTab(
-                'https://drive.google.com/file/d/1pWLDg6TlVEiRLKht1yN0f-zFWNMC2z7e/view?usp=sharing',
-              )
-            }>
+            onPress={() => openWebsiteInNewTab('https://example.com')}>
             <Image source={CV} style={styles.icon} />
           </TouchableOpacity>
         </View>
@@ -68,14 +57,7 @@ const MenuBarComponent: React.FC = () => {
         </TouchableOpacity>
         <TouchableOpacity>
           <View style={styles.textContainer}>
-            <Link
-              to="about" // The target section's id
-              spy={true}
-              smooth={true}
-              offset={-70} // Adjust this value to account for any fixed header
-              duration={500}>
-              <Text style={[styles.textStyle, {width: 95}]}>About</Text>
-            </Link>
+            <Text style={[styles.textStyle, {width: 95}]}>About</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity>
@@ -105,19 +87,20 @@ const MenuBarComponent: React.FC = () => {
         </View>
       </View>
     </View>
+    </div>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     position: 'absolute', // Fix the container at the top
-    top: 0,
+    top: 766,
     left: 0,
     right: 0,
   },
   menuBar: {
-    backgroundColor: '#d0bfff', // Background color
-    height: 96, // Height in pixels
+    backgroundColor: '#fff3da', // Background color
+    height: 755, // Height in pixels
     width: '100%', // Full width
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -131,7 +114,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     flexDirection: 'row',
     marginLeft: 66,
-    marginRight: 330,
+    marginRight:330,
   },
   icon: {
     height: 30,
@@ -150,13 +133,13 @@ const styles = StyleSheet.create({
   darkmodeIcon: {
     height: 25,
     width: 25,
-    marginLeft: 4,
+    marginLeft:4,
   },
-  darkModeSwitch: {
+  darkModeSwitch:{
     height: 45,
     width: 45,
-    marginLeft: 4,
-    marginTop: -10,
+    marginLeft:4,
+    marginTop:-10,
   },
   darkmodeIconContainer: {
     flex: 1,
@@ -164,8 +147,8 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     marginTop: 0,
     flexDirection: 'row',
-    marginLeft: -150,
+    marginLeft:-150,
   },
 });
 
-export default MenuBarComponent;
+export default AboutScreenComponent;
