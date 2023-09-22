@@ -1,92 +1,40 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  Linking,
-} from 'react-native';
+import {View, StyleSheet, Text, Image} from 'react-native';
 
-import Github from '../../assets/icons/github.png';
-import Linkedin from '../../assets/icons/linkedin.png';
-import Instagram from '../../assets/icons/instagram.png';
-import CV from '../../assets/icons/cv.png';
-import Light from '../../assets/icons/light.png';
-import Dark from '../../assets/icons/dark.png';
-import Switch from '../../assets/icons/switch.png';
-
-const openWebsiteInNewTab = (url: string) => {
-  Linking.openURL(url).catch(err => console.error('An error occurred', err));
-};
+import MyImage from '../../assets/images/my.png';
+import ReactI from '../../assets/icons/ReactI.png';
 
 const AboutScreenComponent: React.FC = () => {
   return (
     <div id="about">
-    <View style={styles.container}>
-      <View style={styles.menuBar}>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity
-            onPress={() =>
-              openWebsiteInNewTab('https://github.com/chandimadharmarathne')
-            }>
-            <Image source={Github} style={styles.icon} />
-          </TouchableOpacity>
-          <a
-            href="https://github.com/chandimadharmarathne"
-            target="_blank"
-            rel="noopener noreferrer">
-            <Image source={Linkedin} style={styles.icon} />
-          </a>
-          <TouchableOpacity
-            onPress={() => openWebsiteInNewTab('https://instagram.com')}>
-            <Image source={Instagram} style={styles.icon} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => openWebsiteInNewTab('https://example.com')}>
-            <Image source={CV} style={styles.icon} />
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={[styles.textStyle, {width: 88}]}>Home</Text>
+      <View style={styles.container}>
+        <View style={styles.aboutScreen}>
+          <Text style={styles.textStyle}>About Me</Text>
+          <View style={styles.detailContainer}>
+            <View style={styles.imageContainer}>
+              <View style={styles.imageRectangle}>
+                <Image source={MyImage} style={styles.imageStyle} />
+              </View>
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.aboutText}>
+                I'm an Electronics and Information Technology student with a
+                strong passion for software development. Committed to continuous
+                learning, I stay current with cutting-edge technologies. Through
+                university projects, I've honed my skills and embraced the
+                importance of effective communication in team collaboration. I
+                thrive on learning from my mistakes, seeing them as
+                opportunities for growth. My goal is to become an outstanding
+                Software Engineer, where innovation, collaboration, and
+                self-improvement are at the core of my journey.
+                <Image source={ReactI} style={styles.icon} />
+              </Text>
+            </View>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={[styles.textStyle, {width: 95}]}>About</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={[styles.textStyle, {width: 106}]}>Services</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={[styles.textStyle, {width: 80}]}>Skills</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={[styles.textStyle, {width: 102}]}>Portfolio</Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <View style={[styles.textContainer, {paddingRight: 224}]}>
-            <Text style={[styles.textStyle, {width: 93}]}>Contact</Text>
-          </View>
-        </TouchableOpacity>
-        <View style={styles.darkmodeIconContainer}>
-          <Image source={Light} style={styles.darkmodeIcon} />
-          <Image source={Switch} style={styles.darkModeSwitch} />
-          <Image source={Dark} style={styles.darkmodeIcon} />
         </View>
       </View>
-    </View>
     </div>
   );
 };
@@ -98,56 +46,65 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  menuBar: {
+  aboutScreen: {
     backgroundColor: '#fff3da', // Background color
     height: 755, // Height in pixels
     width: '100%', // Full width
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: 'column',
     alignItems: 'center',
-    padding: 10,
+    padding: 0,
   },
-  iconContainer: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignContent: 'center',
-    marginTop: 0,
+  detailContainer: {
     flexDirection: 'row',
-    marginLeft: 66,
-    marginRight:330,
+    alignItems: 'center',
+    padding: 0,
+    marginTop: 50,
+    marginLeft: 0,
   },
-  icon: {
-    height: 30,
-    width: 30,
-    marginRight: 21,
-  },
-  textStyle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: 'black',
+  imageContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 0,
+    marginTop: 1,
+    marginLeft: 108,
+    marginRight: 50,
   },
   textContainer: {
-    height: 37,
-    margin: 4,
-  },
-  darkmodeIcon: {
-    height: 25,
-    width: 25,
-    marginLeft:4,
-  },
-  darkModeSwitch:{
-    height: 45,
-    width: 45,
-    marginLeft:4,
-    marginTop:-10,
-  },
-  darkmodeIconContainer: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignContent: 'center',
+    height: '100%',
+    width: '55%',
     marginTop: 0,
-    flexDirection: 'row',
-    marginLeft:-150,
+  },
+  textStyle: {
+    fontSize: 50,
+    fontWeight: '700',
+    color: 'black',
+    marginTop: 42,
+  },
+  aboutText: {
+    fontSize: 20,
+    fontWeight: '400',
+    color: 'black',
+    textAlign: 'justify',
+    lineHeight: 50,
+  },
+  imageRectangle: {
+    backgroundColor: '#DFCCFB',
+    width: 350,
+    height: 350,
+  },
+  imageStyle: {
+    width: 350,
+    height: 350,
+    marginLeft: 0,
+  },
+  textDContainer: {
+    height: 37,
+    margin: 0,
+  },
+  icon: {
+    height: 31,
+    width: 35,
+    marginLeft: 1,
   },
 });
 

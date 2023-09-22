@@ -1,6 +1,5 @@
 import React from 'react';
-import {Dimensions, StyleSheet, Text, View, ScrollView} from 'react-native';
-import MainImage from './component/main_image_component/main_image_component';
+import {Dimensions, StyleSheet, View, ScrollView} from 'react-native';
 import MenuBarComponent from './component/menu_bar_component/menu_bar_component';
 import HomeScreenComponent from './component/home_screen_component/home_screen_component';
 import AboutScreenComponent from './component/about_screen_component/about_screen_component';
@@ -13,10 +12,6 @@ const App: React.FC = () => {
       <ScrollView style={styles.scrollView}>
         <HomeScreenComponent />
         <AboutScreenComponent />
-        <MainImage />
-        <View style={styles.center}>
-          <Text>Hello My Web</Text>
-        </View>
       </ScrollView>
       <MenuBarComponent />
     </View>
